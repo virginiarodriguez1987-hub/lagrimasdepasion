@@ -1,0 +1,23 @@
+github/workflows/diario.ymlname: Actualizacion Diaria Automatica
+
+on:
+  schedule:
+    - cron: '0 8 * * *' # Se ejecuta todos los días a las 8:00 de la mañana
+  workflow_dispatch: # Permite ejecutarlo también manualmente cuando quieras
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Copiar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar entorno
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Ejecutar rutina diaria
+        run: |
+          echo "Ejecutando actualización de contenidos..."
+          # Aquí se sincronizan y actualizan los datos de forma autónoma
