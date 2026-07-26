@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lágrimas de Pasión — Enciclopedia Cultural & Legado Sacro de Andalucía</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-bright: #FFDF00;
+            --gold-soft: #F3E5AB;
+            --purple-dark: #070108;
+            --purple-card: #130418;
+            --purple-border: #2C0938;
+            --text-light: #F8F8FA;
+            --text-muted: #B3B3C2;
+            --accent-red: #8A1C24;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--purple-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 50% 0%, #2D053A 0%, rgba(7, 1, 8, 0.98) 75%),
+                linear-gradient(180deg, #070108 0%, #020003 100%);
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 70px 20px 40px;
+            border-bottom: 2px solid var(--gold);
+            background: rgba(19, 4, 24, 0.9);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.9);
+        }
+
+        .badge-title {
+            display: inline-block;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 4px;
+            color: var(--gold-soft);
+            text-transform: uppercase;
+            border: 1px solid var(--gold);
+            padding: 6px 18px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--gold);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-shadow: 0 0 25px rgba(212, 175, 55, 0.5), 2px 2px 5px #000;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1450px;
+            margin: 40px auto;
+            padding: 0 25px;
+        }
+
+        /* Consola de Métricas */
+        .status-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .status-card {
+            background: var(--purple-card);
+            border: 1px solid var(--purple-border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        }
+
+        .status-card h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-soft);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .status-card .num {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .status-card .indicator {
+            font-size: 0.8rem;
+            color: #4CAF50;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        /* Buscador */
+        .controls-section {
+            background: var(--purple-card);
+            border: 1px solid var(--purple-border);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 18px 25px;
+            background: rgba(7, 1, 8, 0.9);
+            border: 2px solid var(--purple-border);
+            border-radius: 10px;
+            color: #FFF;
+            font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .province-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            color: var(--gold-soft);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: linear-gradient(135deg, var(--gold) 0%, #B38F24 100%);
+            color: var(--purple-dark);
+            border-color: var(--gold-bright);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+            transform: translateY(-2px);
+        }
+
+        /* Grid de Tarjetas */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 35px;
+        }
+
+        .card {
+            background: var(--purple-card);
+            border: 1px solid var(--purple-border);
+            border-radius: 16px;
+            padding: 0;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 4px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            z-index: 2;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .card-hero-img {
+            width: 100%;
+            height: 270px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--purple-border);
+            filter: brightness(0.95) contrast(1.1);
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+
+        .card:hover .card-hero-img {
+            filter: brightness(1.08) contrast(1.15);
+            transform: scale(1.02);
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding-bottom: 12px;
+        }
+
+        .card h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        .card-subtitle {
+            color: var(--gold-soft);
+            font-size: 1rem;
+            font-style: italic;
+            margin-bottom: 18px;
+            font-weight: 500;
+        }
+
+        .section-block {
+            background: rgba(7, 1, 8, 0.6);
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 12px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .section-text {
+            color: #DDD;
+            font-size: 0.91rem;
+            line-height: 1.55;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-script {
+            width: 100%;
+            padding: 12px;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            border-radius: 8px;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-script:hover {
+            background: var(--gold);
+            color: var(--purple-dark);
+        }
+
+        .script-box {
+            display: none;
+            background: rgba(19, 4, 24, 0.95);
+            border: 1px dashed var(--gold);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-style: italic;
+            color: var(--gold-soft);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--purple-border);
+            color: #777;
+            font-size: 0.9rem;
+            margin-top: 80px;
+            background: rgba(5, 1, 7, 0.95);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.4rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="badge-title">Centro de Mando & Archivo Histórico de Andalucía</div>
+        <h1>Lágrimas de Pasión</h1>
+        <p class="subtitle">Enciclopedia Integral: Historia Cofrade, Leyendas, Pasos Procesionales, Gastronomía e Imaginería Sacra</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Consola de Métricas -->
+        <div class="status-bar">
+            <div class="status-card">
+                <h3>Nodos Activos</h3>
+                <div class="num">8 / 8</div>
+                <div class="indicator">● Provincias Conectadas</div>
+            </div>
+            <div class="status-card">
+                <h3>Hermandad Digital</h3>
+                <div class="num">100%</div>
+                <div class="indicator">● Credenciales Emitidas</div>
+            </div>
+            <div class="status-card">
+                <h3>Señal de Emisión</h3>
+                <div class="num">HQ / 4K</div>
+                <div class="indicator">● Control de Producción Listo</div>
+            </div>
+            <div class="status-card">
+                <h3>Patrimonio Digital</h3>
+                <div class="num">Master</div>
+                <div class="indicator">● BBDD Verificada</div>
+            </div>
+        </div>
+
+        <!-- Buscador -->
+        <div class="controls-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Buscar por cualquier término: Guadalquivir, Puente de Triana, La Manquita, Alhambra, Mezquita, Caleta, Cazorla..." onkeyup="filterCards()">
+            </div>
+            
+            <div class="province-nav">
+                <button class="nav-btn active" onclick="filterProvince('all')">Todas las Provincias (8)</button>
+                <button class="nav-btn" onclick="filterProvince('sevilla')">Sevilla</button>
+                <button class="nav-btn" onclick="filterProvince('malaga')">Málaga</button>
+                <button class="nav-btn" onclick="filterProvince('granada')">Granada</button>
+                <button class="nav-btn" onclick="filterProvince('cordoba')">Córdoba</button>
+                <button class="nav-btn" onclick="filterProvince('cadiz')">Cádiz</button>
+                <button class="nav-btn" onclick="filterProvince('huelva')">Huelva</button>
+                <button class="nav-btn" onclick="filterProvince('jaen')">Jaén</button>
+                <button class="nav-btn" onclick="filterProvince('almeria')">Almería</button>
+            </div>
+        </div>
+
+        <div class="grid" id="provinceGrid">
+
+            <!-- SEVILLA -->
+            <div class="card" data-province="sevilla">
+                <img src="https://images.unsplash.com/photo-1559563458-527698bf5295?auto=format&fit=crop&w=1200&q=80" alt="Puente de Triana sobre el Guadalquivir al atardecer" class="card-hero-img">
+                <div class="card-body">
+                    <div class="card-header">
+                        <h2>Sevilla</h2>
+                    </div>
+                    <div class="card-subtitle">Barrio de Triana & El Corazón de la Hispalense</div>
+                    
+                    <div class="section-block">
+                        <div class="section-title">🖼️ Hermandad & Parroquia</div>
+                        <div class="section-text"><b>Esperanza de Triana</b> (Capilla de los Marineros / Real Parroquia de Santa Ana) y <b>Gran Poder</b> (Basílica de San Lorenzo). Tallas cumbre del Barroco andaluz.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">📜 Historia, Leyenda & Curiosidades</div>
+                        <div class="section-text"><b>Leyenda del Cachorro:</b> Se cuenta que Francisco Antonio Gijón esculpió la agonía de Cristo inspirándose en el rostro de un gitano apodado 'El Cachorro' tras ser herido en Triana. <b>Dato Histórico:</b> La imagen del Gran Poder (Juan de Mesa, 1620) conserva en su interior un documento manuscrito firmado por su autor.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">🌉 Calles, Puentes & Itinerario</div>
+                        <div class="section-text">El <b>Río Guadalquivir</b> reflejando la luna de la Madrugá, el cruce por el <b>Puente de Isabel II (Puente de Triana)</b>, la estrechez de <i>Calle Pureza</i> y la Plaza del Salvador.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">🍯 Gastronomía de Pasión</div>
+                        <div class="section-text">Torrijas con miel de azahar, pestiños enmelados, bacalao frito con tomate en Pureza y garbanzos con espinacas a la sevillana.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">🎺 Música, Oficios & Momento</div>
+                        <div class="section-text">Marcha <i>Amarguras</i>, bordados en oro del Taller Caro, orfebrería repujada y la candelería encendida cruzando el río bajo el eco de saetas.</div>
+                    </div>
+
+                    <div class="card-actions">
+                        <button class="btn-script" onclick="toggleScript('script-sevilla')">📜 Ver Guion Poético para Redes</button>
+                    </div>
+                    <div class="script-box" id="script-sevilla">
+                        "Cuando la luna de la Madrugá se mira en el Guadalquivir, Triana no duerme. Camina la Esperanza sobre el puente, entre el susurro de la cera y el aroma a azahar. Sevilla no procesiona: despierta su alma."
+                    </div>
+                </div>
+            </div>
+
+            <!-- MÁLAGA -->
+            <div class="card" data-province="malaga">
+                <img src="https://images.unsplash.com/photo-1561632669-6e0e2e50df2c?auto=format&fit=crop&w=1200&q=80" alt="Catedral de Málaga La Manquita y Vistas" class="card-hero-img">
+                <div class="card-body">
+                    <div class="card-header">
+                        <h2>Málaga</h2>
+                    </div>
+                    <div class="card-subtitle">La Novia del Mar & El Puerto de la Legión</div>
+
+                    <div class="section-block">
+                        <div class="section-title">🖼️ Hermandad & Parroquia</div>
+                        <div class="section-text"><b>Cofradía de Mena</b> (Santo Domingo de Guzmán) y <b>Jesús El Rico</b> (Parroquia del Sagrario).</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">📜 Historia, Leyenda & Curiosidades</div>
+                        <div class="section-text"><b>Privilegio Real de 'El Rico':</b> Concedido por Carlos III en 1759 tras una epidemia de peste; los presos sacaron la imagen a hombros y la peste cesó. Desde entonces, libera legalmente a un reo cada Miércoles Santo. <b>La Legión:</b> La vinculación formal del Cristo de Mena con la Legión se oficializó en 1928.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">🌊 Playas, Ríos & Itinerario</div>
+                        <div class="section-text">El <b>Río Guadalmedina</b> dividiendo la ciudad, vistas al <b>Mar Mediterráneo</b> desde La Malagueta, <i>Calle Marqués de Larios</i> y la <i>Plaza del Obispo</i>.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">🍯 Gastronomía de Pasión</div>
+                        <div class="section-text">Ajoblanco malagueño, torrijas empapadas en vino dulce de Málaga y borrachuelitos tradicionales fritos.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">🎺 Música, Oficios & Momento</div>
+                        <div class="section-text">El canto de <i>El Novio de la Muerte</i> en el desembarco del Puerto y el mecido monumental de los tronos a pulso por hombres de trono.</div>
+                    </div>
+
+                    <div class="card-actions">
+                        <button class="btn-script" onclick="toggleScript('script-malaga')">📜 Ver Guion Poético para Redes</button>
+                    </div>
+                    <div class="script-box" id="script-malaga">
+                        "Fuerza, fe y mar. Málaga recibe a la Legión desembarcando a paso firme. Sobre los hombros de su pueblo, los tronos son catedrales de madera sobredorada flotando hacia el cielo."
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRANADA -->
+            <div class="card" data-province="granada">
+                <img src="https://images.unsplash.com/photo-1568084680786-a84f91d1153c?auto=format&fit=crop&w=1200&q=80" alt="La Alhambra de Granada y el Albaicín" class="card-hero-img">
+                <div class="card-body">
+                    <div class="card-header">
+                        <h2>Granada</h2>
+                    </div>
+                    <div class="card-subtitle">El Embrujo del Sacromonte & La Alhambra</div>
+
+                    <div class="section-block">
+                        <div class="section-title">🖼️ Hermandad & Parroquia</div>
+                        <div class="section-text"><b>Cristo de los Gitanos</b> (Abadía del Sacromonte) y <b>La Soledad de San Jerónimo</b> (Monasterio de San Jerónimo).</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">📜 Historia, Leyenda & Curiosidades</div>
+                        <div class="section-text"><b>Hogueras del Sacromonte:</b> En la subida nocturna del Cristo del Consuelo, se encienden grandes fogatas ('zambras') en las cuevas como saludo ritual. <b>Dato Histórico:</b> La Soledad de San Jerónimo se fundó en 1521, siendo la más antigua cofradía de penitencia de Granada.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">🏔️ Paisajes, Ríos & Itinerario</div>
+                        <div class="section-text">El cauce del <b>Río Darro</b>, el <b>Paseo de los Tristes</b> a pies de la Alhambra, picos de <b>Sierra Nevada</b> y las cuestas empedradas del Albaicín.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">🍯 Gastronomía de Pasión</div>
+                        <div class="section-text">Habas fritas con jamón de Trevélez, bacalao en salazón al estilo sacromontano y leche frita aromática.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">🎺 Música, Oficios & Momento</div>
+                        <div class="section-text">El redoble del tambor rompiendo la noche a los pies de la Alhambra iluminada mientras suenan las saetas al cante jondo.</div>
+                    </div>
+
+                    <div class="card-actions">
+                        <button class="btn-script" onclick="toggleScript('script-granada')">📜 Ver Guion Poético para Redes</button>
+                    </div>
+                    <div class="script-box" id="script-granada">
+                        "Fuego en el Sacromonte, nieve en Sierra Nevada y el redoble del tambor a la sombra de la Alhambra. Granada convierte el dolor en el cante jondo más sublime."
+                    </div>
+                </div>
+            </div>
+
+            <!-- CÓRDOBA -->
+            <div class="card" data-province="cordoba">
+                <img src="https://images.unsplash.com/photo-1590053805872-ef0e85ec81bc?auto=format&fit=crop&w=1200&q=80" alt="Puente Romano y Mezquita-Catedral de Córdoba" class="card-hero-img">
+                <div class="card-body">
+                    <div class="card-header">
+                        <h2>Córdoba</h2>
+                    </div>
+                    <div class="card-subtitle">El Silencio de la Judería & La Mezquita-Catedral</div>
+
+                    <div class="section-block">
+                        <div class="section-title">🖼️ Hermandad & Parroquia</div>
+                        <div class="section-text"><b>Remedio de Ánimas</b> (San Lorenzo) y <b>Nuestra Señora de los Dolores</b> (Hospital de San Jacinto).</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">📜 Historia, Leyenda & Curiosidades</div>
+                        <div class="section-text"><b>El Miserere Franciscano:</b> El Cristo del Remedio de Ánimas camina en penumbra estricta, sin bandas, acompañado solo por una esquila de mano y cantores del Miserere. <b>La Señora de Córdoba:</b> La Virgen de los Dolores (Juan Prieto, 1719) concentra la mayor devoción de la capital califal.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">🌉 Puentes, Ríos & Itinerario</div>
+                        <div class="section-text">El bimilenario <b>Puente Romano</b> sobre el <b>Guadalquivir</b>, la <i>Plaza de Capuchinos</i> y los callejones empedrados de la Judería.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">🍯 Gastronomía de Pasión</div>
+                        <div class="section-text">Salmorejo cordobés, potaje de garbanzos con bacalao y espinacas y torrijas maceradas en vino D.O. Montilla-Moriles.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">🎺 Música, Oficios & Momento</div>
+                        <div class="section-text">Cera tiniebla goteando sobre el suelo califal, campana de muñequilla y el recogimiento solemne en el Patio de los Naranjos.</div>
+                    </div>
+
+                    <div class="card-actions">
+                        <button class="btn-script" onclick="toggleScript('script-cordoba')">📜 Ver Guion Poético para Redes</button>
+                    </div>
+                    <div class="script-box" id="script-cordoba">
+                        "El silencio habla en Córdoba. Solo el sonido de los pasos penitentes rompe la noche de la Judería. Entre muros de piedra y azahar, la fe se hace oración pura."
+                    </div>
+                </div>
+            </div>
+
+            <!-- CÁDIZ -->
+            <div class="card" data-province="cadiz">
+                <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1200&q=80" alt="Catedral de Cádiz y Océano Atlántico" class="card-hero-img">
+                <div class="card-body">
+                    <div class="card-header">
+                        <h2>Cádiz</h2>
+                    </div>
+                    <div class="card-subtitle">La Tacita de Plata & El Viento del Atlántico</div>
+
+                    <div class="section-block">
+                        <div class="section-title">🖼️ Hermandad & Parroquia</div>
+                        <div class="section-text"><b>Nuestro Padre Jesús Nazareno</b> (Iglesia Conventual de Santa María) y <b>La Buena Muerte</b> (San Agustín).</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">📜 Historia, Leyenda & Curiosidades</div>
+                        <div class="section-text"><b>Título de Regidor Perpetuo:</b> En 1681, tras librar a la ciudad de una epidemia de peste, el Cabildo nombró al Nazareno 'Regidor Perpetuo de Cádiz'. <b>Maderas de Ultramar:</b> Sus pasos procesionales fueron esculpidos en caoba traída en los galeones de las Antillas.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">🌊 Playas, Océano & Itinerario</div>
+                        <div class="section-text">El <b>Océano Atlántico</b> rompiendo en la <b>Playa de la Caleta</b>, el discurrir bordeando el <b>Campo del Sur</b> y el Barrio de Santa María.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">🍯 Gastronomía de Pasión</div>
+                        <div class="section-text">Tortillitas de camarones de la bahía, atún de almadraba encebollado y alpisteros gaditanos.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">🎺 Música, Oficios & Momento</div>
+                        <div class="section-text">Marchas procesionales clásicas gaditanas y el andar cadencioso de los cargadores frente al temporal del mar.</div>
+                    </div>
+
+                    <div class="card-actions">
+                        <button class="btn-script" onclick="toggleScript('script-cadiz')">📜 Ver Guion Poético para Redes</button>
+                    </div>
+                    <div class="script-box" id="script-cadiz">
+                        "Donde el Atlántico abraza a la fe. El Regidor Perpetuo camina sobre el salitre y el viento de la Tacita de Plata, recortando su devoción contra la inmensidad del mar."
+                    </div>
+                </div>
+            </div>
+
+            <!-- HUELVA -->
+            <div class="card" data-province="huelva">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="Marismas y Atardecer en Huelva" class="card-hero-img">
+                <div class="card-body">
+                    <div class="card-header">
+                        <h2>Huelva</h2>
+                    </div>
+                    <div class="card-subtitle">Tierra de Descubridores & Devoción Marinera</div>
+
+                    <div class="section-block">
+                        <div class="section-title">🖼️ Hermandad & Parroquia</div>
+                        <div class="section-text"><b>El Nazareno</b> (Parroquia de la Purísima Concepción) y <b>Virgen de la Victoria</b> (Sagrado Corazón de Jesús).</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">📜 Historia, Leyenda & Curiosidades</div>
+                        <div class="section-text"><b>La Levantá a Pulso:</b> La devoción popular por la Virgen de la Victoria desencadena históricamente levantás a pulso sostenidas en el aire. <b>Protector de Navegantes:</b> Los marineros onubenses encomendaban tradicionalmente sus travesías al Señor de la Madrugá.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">⛵ Ríos, Estuarios & Playas</div>
+                        <div class="section-text">La confluencia del <b>Río Tinto</b> y el <b>Río Odiel</b>, la brisa de <b>Mazagón</b>, <i>La Placeta</i> y el Barrio Reina Victoria.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">🍯 Gastronomía de Pasión</div>
+                        <div class="section-text">Chocos frescos con habas de la costa, bacalao al arriero onubense y cocas tradicionales de Isla Cristina.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">🎺 Música, Oficios & Momento</div>
+                        <div class="section-text">Lluvias de pétalos cayendo desde las balconadas de la Calle Concepción al compás de cornetas y tambores.</div>
+                    </div>
+
+                    <div class="card-actions">
+                        <button class="btn-script" onclick="toggleScript('script-huelva')">📜 Ver Guion Poético para Redes</button>
+                    </div>
+                    <div class="script-box" id="script-huelva">
+                        "Luz del Atlántico y aroma a clavel. Huelva vibra en La Placeta con la zancada firme de su Nazareno y la gracia inigualable de la Virgen de la Victoria."
+                    </div>
+                </div>
+            </div>
+
+            <!-- JAÉN -->
+            <div class="card" data-province="jaen">
+                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80" alt="Catedral de Jaén e infinitos campos de olivos" class="card-hero-img">
+                <div class="card-body">
+                    <div class="card-header">
+                        <h2>Jaén</h2>
+                    </div>
+                    <div class="card-subtitle">El Mar de Olivos & La Leyenda del Abuelo</div>
+
+                    <div class="section-block">
+                        <div class="section-title">🖼️ Hermandad & Parroquia</div>
+                        <div class="section-text"><b>Nuestro Padre Jesús Nazareno ('El Abuelo')</b> (Santuario del Camarín de Jesús).</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">📜 Historia, Leyenda & Curiosidades</div>
+                        <div class="section-text"><b>Misterioso Anciano:</b> La leyenda cuenta que un anciano pidió cobijo en una casería, solicitó un tronco de nogal y se encerró. A la mañana siguiente había desaparecido dejando labrada la imagen de 'El Abuelo'.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">⛰️ Paisajes, Ríos & Itinerario</div>
+                        <div class="section-text">Nacimiento del <b>Guadalquivir</b> en Cazorla, la impresionante fachada de la <b>Catedral de Jaén</b> y el emblemático <i>Cantón de Jesús</i>.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">🍯 Gastronomía de Pasión</div>
+                        <div class="section-text">Pipirrana jiennense con aceite de oliva virgen extra, papajotes fritos de sartén y torrijas con miel de Cazorla.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">🎺 Música, Oficios & Momento</div>
+                        <div class="section-text">El sobrio 'Encuentro en el Cantón' al alborear el Viernes Santo, rompiendo la noche ante miles de miradas silenciosas.</div>
+                    </div>
+
+                    <div class="card-actions">
+                        <button class="btn-script" onclick="toggleScript('script-jaen')">📜 Ver Guion Poético para Redes</button>
+                    </div>
+                    <div class="script-box" id="script-jaen">
+                        "En el reino del olivar, Jaén guarda una promesa secular. Cuando 'El Abuelo' camina al amanecer frente a la Catedral, el tiempo se detiene en Andalucía."
+                    </div>
+                </div>
+            </div>
+
+            <!-- ALMERÍA -->
+            <div class="card" data-province="almeria">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="Alcazaba de Almería y Costa del Mediterráneo" class="card-hero-img">
+                <div class="card-body">
+                    <div class="card-header">
+                        <h2>Almería</h2>
+                    </div>
+                    <div class="card-subtitle">Luz del Mediterráneo & Bajo la Alcazaba</div>
+
+                    <div class="section-block">
+                        <div class="section-title">🖼️ Hermandad & Parroquia</div>
+                        <div class="section-text"><b>Hermandad del Prendimiento</b> (Capilla del Hospital Real) y <b>El Estudiante</b> (Catedral de la Encarnación).</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">📜 Historia, Leyenda & Curiosidades</div>
+                        <div class="section-text"><b>Maniobra Milimétrica:</b> La salida de la procesión del Prendimiento requiere una habilidad extrema de los costaleros para salvar el portón gótico del Hospital Real. <b>Templo Fortaleza:</b> Es de las pocas procesiones que ingresan en una Catedral-Fortaleza.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">☀️ Playas, Costas & Itinerario</div>
+                        <div class="section-text">El sol reluciente sobre el <b>Mar Mediterráneo</b>, los acantilados de <b>Cabo de Gata</b> y el desfile bajo las murallas de la <b>Alcazaba</b>.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">🍯 Gastronomía de Pasión</div>
+                        <div class="section-text">Sopa de pimentón con bacalao, gurullos con jibia del puerto y borrachuelos almerienses perfumados con azahar.</div>
+                    </div>
+
+                    <div class="section-block">
+                        <div class="section-title">🎺 Música, Oficios & Momento</div>
+                        <div class="section-text">Orfebrería en plata repujada refulgiendo bajo la luz del atardecer mediterráneo en la Plaza de la Catedral.</div>
+                    </div>
+
+                    <div class="card-actions">
+                        <button class="btn-script" onclick="toggleScript('script-almeria')">📜 Ver Guion Poético para Redes</button>
+                    </div>
+                    <div class="script-box" id="script-almeria">
+                        "Luz pura sobre murallas milenarias. Almería procesiona bajo la guardia eterna de su Alcazaba, uniendo la sobriedad castellana con el alma blanca del Mediterráneo."
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Lágrimas de Pasión — Enciclopedia Cultural, Geografía, Historia Sacra y Producción Audiovisual</p>
+    </footer>
+
+    <script>
+        function filterProvince(province) {
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                if (province === 'all' || card.getAttribute('data-province') === province) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function filterCards() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(input)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function toggleScript(id) {
+            const box = document.getElementById(id);
+            if (box.style.display === "block") {
+                box.style.display = "none";
+            } else {
+                box.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
